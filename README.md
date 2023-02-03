@@ -59,11 +59,16 @@ syscall(void)
 ```
 
 Add a line like other system call wiht extern keyword and also add in the nice structure of system call array.
+
 ``` [SYS_getreadcount]   sys_getreadcount ```
+
 ``` extern int sys_getreadcount(void) ```
 
 ## Changes in ```user.h``` and ```usys.S``` file
 Add this line to user.h file
+
 ```int getreadcount(void)```
+
 Add this line to usys.S file
+
 ```SYSCALL(getreadcount)```

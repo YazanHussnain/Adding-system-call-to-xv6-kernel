@@ -15,7 +15,7 @@
 // to a saved program counter, and then the first argument.
 
 int readcount = 0;
-
+struct spinlock lock;             // added
 // Fetch the int at addr from the current process.
 int
 fetchint(uint addr, int *ip)
@@ -138,8 +138,6 @@ syscall(void)
 {
   int num;
   struct proc *curproc = myproc();
-  struct spinlock lock;             // added
-  initlock(&lock, "readCnt");       // added
   
   num = curproc->tf->eax;
   // ====================added======================

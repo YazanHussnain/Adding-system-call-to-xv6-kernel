@@ -89,8 +89,11 @@ To make sys_getreadcount accessible to other files, write ```extern``` with it p
 
 ## Changes in ```user.h``` and ```usys.S``` file
 You now have to make edits to two small files that will provide the interface for your user program to access the system call. Open the file named ```usys.S``` and add the following line to the end. 
+
 ```SYSCALL(getreadcount)```
 
 Then, open the file user.h and add the specified line. 
+
 ```int getreadcount(void)```
-The function in ```user.h``` will be called by the user program, however, it does not have an actual implementation in the system. Instead, calling this function from the user program will be translated to system call number 22, represented by the SYS_getyear preprocessor directive
+
+The function in ```user.h``` will be called by the user program, however, it does not have an actual implementation in the system. Instead, calling this function from the user program will be translated to system call number 22, represented by the SYS_getreadcount preprocessor directive
